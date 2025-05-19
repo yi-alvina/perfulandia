@@ -18,6 +18,8 @@
         <module>msvc-productos</module>
         <module>msvc-sucursal</module>
         <module>msvc-usuario</module>
+        <module>msvc.venta</module>
+        <module>msvc.carrito</module>
     </modules>
     <properties>
         <java.version>21</java.version>
