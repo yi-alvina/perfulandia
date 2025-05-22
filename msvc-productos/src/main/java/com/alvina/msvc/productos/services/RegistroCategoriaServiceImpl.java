@@ -27,7 +27,7 @@ public class RegistroCategoriaServiceImpl implements RegistroCategoriaService{
 
     @Transactional(readOnly = true)
     @Override
-    public List<RegistroCategoria> findAll(Long id){
+    public List<RegistroCategoria> findAll(){
         return registroCategoriaRepository.findAll();
     }
 

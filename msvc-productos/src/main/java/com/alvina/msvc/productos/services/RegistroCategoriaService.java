@@ -6,7 +6,7 @@ import com.alvina.msvc.productos.models.RegistroCategoria;
 import java.util.List;
 
 public interface RegistroCategoriaService {
-    List<RegistroCategoria> findAll(Long id);
+    List<RegistroCategoria> findAll();
     RegistroCategoria findById(Long id);
     RegistroCategoria save(RegistroCategoriaDTO registroCategoria);
     void deleteById(Long id);

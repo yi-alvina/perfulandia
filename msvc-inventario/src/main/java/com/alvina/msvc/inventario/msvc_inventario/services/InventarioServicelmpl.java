@@ -1,5 +1,6 @@
 package com.alvina.msvc.inventario.msvc_inventario.services;
 
+import com.alvina.msvc.inventario.msvc_inventario.dtos.InventarioDetalleDTO;
 import com.alvina.msvc.inventario.msvc_inventario.exceptions.InventarioException;
 import com.alvina.msvc.inventario.msvc_inventario.models.Inventario;
 import com.alvina.msvc.inventario.msvc_inventario.repositories.InventarioRepository;
@@ -27,17 +28,17 @@ public class InventarioServicelmpl implements InventarioService{
         );
     }
 
-    @Transactional
     @Override
     public Inventario save(Inventario inventario) {
-        if(inventarioRepository.findByTipoInventarioEquals(inventario.getTipoInventario()).isPresent(
-
-        ))
+        return null;
     }
+
 
     @Transactional
     @Override
     public void deleteById(Long id) {
-        inventarioRepository.deleteById(Long id);
+        inventarioRepository.deleteById(id);
     }
+
+
 }

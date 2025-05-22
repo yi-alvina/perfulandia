@@ -28,15 +28,15 @@ public class CategoriaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Categoria> findById(PathVariable Long id) {
+    public ResponseEntity<Categoria> findById(@PathVariable Long id) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(categoriaService.findByCategoriaId(Long id));
+                .body(categoriaService.findByCategoriaId(id));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletebyId(PathVariable Long id) {
-        categoriaService.deleteByCategoriaId(Long id);
+    public ResponseEntity<Void> deletebyId(@PathVariable Long id) {
+        categoriaService.deleteByCategoriaId(id);
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .build();
