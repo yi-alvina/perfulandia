@@ -30,8 +30,8 @@ public class Inventario {
     @NotNull(message = "El campo producto no puede ser vacio")
     private Producto producto;
 
-    @JsonBackReference("inventartio-sucursal")
-    @ManyToOne
+    @JsonBackReference("inventario-sucursal")
+    @OneToOne
     @JoinColumn(name = "sucursal_id", nullable = false)
     private Sucursal sucursal;
 
