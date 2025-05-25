@@ -12,4 +12,5 @@ public interface ProductoService {
     void deleteByProductoId(Long productoId);
     Producto updateByProductoId(Long productoId, Producto producto);
     Producto findByPalabraClave(String palabraClave);
+    Producto findByNombreProducto(String nombreProducto);
 }

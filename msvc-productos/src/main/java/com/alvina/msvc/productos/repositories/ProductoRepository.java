@@ -8,7 +8,15 @@ import java.util.Optional;
 
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
+
+
+
     Optional<Producto> findByProductoId(String productoId);
 
     Optional<Producto> findByPalabraClave(String palabraClave);
+
+    Optional<Producto> findByNombreProducto(String nombreProducto);
+
+    Optional<Producto> findByNombreProductoEquals(String noombreProducto);
+
 }
