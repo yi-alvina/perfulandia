@@ -28,6 +28,9 @@ public class SucursalServicesImpl implements SucursalService {
 
     @Override
     public Sucursal save(Sucursal sucursal) {
-        return this.sucursalRespository.save(sucursal);
+        Sucursal sucursalEntity = new Sucursal();
+        sucursalEntity.setNombreSucursal(sucursal.getNombreSucursal());
+        sucursalEntity.setDireccion( sucursal.getDireccion());
+        return this.sucursalRespository.save(sucursalEntity);
     }
 }
