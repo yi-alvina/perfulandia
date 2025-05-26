@@ -1,5 +1,6 @@
 package com.alvina.msvc.inventario.msvc_inventario.models;
 
+import com.alvina.msvc.productos.models.Categoria;
 import com.alvina.msvc.productos.models.Producto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mcontreras.msvc.usuario.models.Sucursal;
@@ -9,8 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.util.List;
 
 @Entity
 @Table(name = "inventarios")
@@ -24,15 +23,9 @@ public class Inventario {
     @Column(nullable = false)
     private Integer cantidadProducto;
 
-    @JsonBackReference("inventario-producto")
-    @ManyToOne
-    @JoinColumn(name = "producto_id", nullable = false)
-    @NotNull(message = "El campo producto no puede ser vacio")
-    private Producto producto;
 
-    @JsonBackReference("inventartio-sucursal")
-    @ManyToOne
-    @JoinColumn(name = "sucursal_id", nullable = false)
-    private Sucursal sucursal;
+
+
+
 
 }

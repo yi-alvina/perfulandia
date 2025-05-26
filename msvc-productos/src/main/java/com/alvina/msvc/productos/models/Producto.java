@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+
+@Entity
+@Table(name = "productos")
 @Getter @Setter @ToString
 public class Producto {
     @Id
@@ -30,6 +33,5 @@ public class Producto {
     @JsonBackReference("categoria-producto")
     @JoinColumn(name = "categoria_producto_id", nullable = false)
     private Categoria categoria;
-
 
 }

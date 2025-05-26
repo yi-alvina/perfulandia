@@ -8,6 +8,7 @@ import com.alvina.msvc.productos.repositories.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -37,6 +38,13 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
+    public Producto findByNombreProducto(String nombreProducto){
+        return productoRepository.findByNombreProducto(nombreProducto).orElseThrow(
+                () -> new ProductoException("No hay producto con el nombre " + nombreProducto)
+        );
+    }
+
+    @Override
     public void deleteByProductoId(Long productoId){
         productoRepository.deleteById(productoId);
     }
@@ -51,6 +59,16 @@ public class ProductoServiceImpl implements ProductoService {
                 () ->new ProductoException("El producto con id "+ productoId + " no existe")
 
         );
+        }
+
+
+    @Transactional
+    @Override
+    public Producto save(Producto producto){
+        if (productoRepository.findByNombreProductoEquals(producto.getNombreProducto()).isPresent()) {
+            throw new ProductoException("El producto " + producto.getNombreProducto() + " ya existe");
+        }
+        return productoRepository.save(producto);
         }
 
 }
