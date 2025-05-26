@@ -25,11 +25,7 @@ import java.util.function.Function;
 
 public class ProductoController {
     @Autowired
-    private final ProductoService productoService;
-
-    public ProductoController(ProductoService productoService) {
-        this.productoService = productoService;
-    }
+    private ProductoService productoService;
 
     @GetMapping
     public ResponseEntity<List<Producto>> findAll() {
@@ -44,28 +40,28 @@ public class ProductoController {
                 .body(productoService.findByProductoId(id));
     }
 
-    @GetMapping("/{nombreProducto}")
+    @GetMapping("/producto/{nombreProducto}")
     public ResponseEntity<Producto> findByNombreProducto(@PathVariable String nombreProducto){
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(productoService.findByNombreProducto(nombreProducto));
     }
 
-    @GetMapping("/{palabraClave}")
+    @GetMapping("/palabra/{palabraClave}")
     public ResponseEntity<Producto> findByPalabraClave(@PathVariable String palabraClave){
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(productoService.findByPalabraClave(palabraClave));
     }
 
-    @GetMapping("/{palabraClave}")
+    @GetMapping("/palabra-clave/{palabraClave}")
     public ResponseEntity<Producto> findByPalabraClaveLike(@PathVariable String palabraClave){
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(productoService.findByPalabraClaveLike(palabraClave));
     }
 
-    @GetMapping("/{palabraClave}")
+    @GetMapping("/nombre-producto/{palabraClave}")
     public ResponseEntity<Producto> findByNombreProductoLike(@PathVariable String palabraClave){
         return ResponseEntity
                 .status(HttpStatus.OK)
