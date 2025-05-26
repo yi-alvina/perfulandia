@@ -34,5 +34,4 @@ public class Producto {
     @JoinColumn(name = "categoria_producto_id", nullable = false)
     private Categoria categoria;
 
-
 }
