@@ -30,6 +30,6 @@ public class Usuario {
     @NotBlank(message = "El campo apellido usuario no puede ser vacio")
     private String apellidos;
 
-
+    private String correo;
 
 }
