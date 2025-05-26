@@ -1,4 +1,4 @@
-package controllers;
+package com.alvina.msvc.inventario.msvc_inventario.controllers;
 
 import com.alvina.msvc.inventario.msvc_inventario.models.Inventario;
 import com.alvina.msvc.inventario.msvc_inventario.services.InventarioService;
