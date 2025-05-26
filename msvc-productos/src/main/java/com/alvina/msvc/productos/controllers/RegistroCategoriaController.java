@@ -42,4 +42,11 @@ public class RegistroCategoriaController {
                 .body(registroCategoriaService.save(registroCategoria));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<RegistroCategoria> delete(@Valid @RequestBody RegistroCategoriaDTO registroCategoria) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .build();
+    }
+
 }

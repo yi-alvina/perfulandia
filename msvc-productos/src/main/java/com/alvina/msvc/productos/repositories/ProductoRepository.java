@@ -21,5 +21,5 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
     List<Producto> findByNombreProductoLike(String nombreProducto);
 
-    Producto findbyPalabraClaveLike(String palabraClave);
+    List<Producto> findByPalabraClaveLike(String palabraClave);
 }

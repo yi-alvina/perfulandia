@@ -25,7 +25,11 @@ import java.util.function.Function;
 
 public class ProductoController {
     @Autowired
-    private ProductoService productoService;
+    private final ProductoService productoService;
+
+    public ProductoController(ProductoService productoService) {
+        this.productoService = productoService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Producto>> findAll() {
@@ -38,6 +42,34 @@ public class ProductoController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(productoService.findByProductoId(id));
+    }
+
+    @GetMapping("/{nombreProducto}")
+    public ResponseEntity<Producto> findByNombreProducto(@PathVariable String nombreProducto){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(productoService.findByNombreProducto(nombreProducto));
+    }
+
+    @GetMapping("/{palabraClave}")
+    public ResponseEntity<Producto> findByPalabraClave(@PathVariable String palabraClave){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(productoService.findByPalabraClave(palabraClave));
+    }
+
+    @GetMapping("/{palabraClave}")
+    public ResponseEntity<Producto> findByPalabraClaveLike(@PathVariable String palabraClave){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(productoService.findByPalabraClaveLike(palabraClave));
+    }
+
+    @GetMapping("/{palabraClave}")
+    public ResponseEntity<Producto> findByNombreProductoLike(@PathVariable String palabraClave){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(productoService.findByNombreProductoLike(palabraClave));
     }
 
     @DeleteMapping("/{id}")
@@ -54,4 +86,6 @@ public class ProductoController {
                 .status(HttpStatus.CREATED)
                 .body(productoService.save(producto));
     }
+
+
 }

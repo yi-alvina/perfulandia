@@ -1,21 +1,16 @@
 package com.alvina.msvc.productos.services;
 
-import com.alvina.msvc.productos.dtos.ProductoDetalleDTO;
 import com.alvina.msvc.productos.exceptions.ProductoException;
 import com.alvina.msvc.productos.models.Producto;
-import com.alvina.msvc.productos.repositories.CategoriaRepository;
 import com.alvina.msvc.productos.repositories.ProductoRepository;
-import jakarta.validation.constraints.NotBlank;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
 @Service
 public class ProductoServiceImpl implements ProductoService {
-    @Autowired
+
     private ProductoRepository productoRepository;
 
     @Transactional(readOnly = true)
@@ -73,11 +68,27 @@ public class ProductoServiceImpl implements ProductoService {
         return productoRepository.save(producto);
         }
 
-    public Producto findByPalabraClaveLike(String palabraClave){
-        return productoRepository.findByPalabraClave(palabraClave).orElseThrow(
-                () -> new ProductoException("No hay productos bajo la palabra clave: "+ palabraClave)
-        );
 
+    public Producto findByNombreProductoLike(String palabraClave){
+        for (Producto producto : productoRepository.findByNombreProductoLike(palabraClave)) {
+            if (producto.getNombreProducto().contains(palabraClave)) {
+                return producto;
+            }
+            return null;
+        }
+
+        return null;
     }
 
-}
+    public Producto findByPalabraClaveLike(String palabraClave){
+        for (Producto producto : productoRepository.findByPalabraClaveLike(palabraClave)) {
+            if (producto.getPalabraClave().contains(palabraClave)) {
+                return producto;
+            }
+            return null;
+        }
+
+        return null;
+    }
+
+    }
