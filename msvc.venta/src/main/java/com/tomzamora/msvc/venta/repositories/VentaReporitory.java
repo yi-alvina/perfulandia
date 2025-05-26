@@ -9,5 +9,5 @@ import java.util.Optional;
 
 public interface VentaReporitory extends JpaRepository<VentaReporitory, Long> {
 
-    Optional<VentaReporitory> findById(Long idVenta);
+    Optional<VentaReporitory> findBy(Long idVenta);
 }
