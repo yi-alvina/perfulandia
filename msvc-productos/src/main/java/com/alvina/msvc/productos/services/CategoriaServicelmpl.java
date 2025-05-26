@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public class CategoriaServicelmpl implements CategoriaService {
-    @Autowired
+
     private CategoriaRepository categoriaRepository;
 
     @Transactional(readOnly = true)

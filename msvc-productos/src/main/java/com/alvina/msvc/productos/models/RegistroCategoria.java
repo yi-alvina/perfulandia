@@ -23,7 +23,7 @@ public class RegistroCategoria {
     @JsonBackReference("categoria-producto")
     private Categoria categoria;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "idProducto", nullable = false)
     @NotNull(message = "El campo categoria producto no puede ser vacio")
     @JsonBackReference("Producto-categoria")

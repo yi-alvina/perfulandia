@@ -17,7 +17,7 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 @RequestMapping("/api/v1/categorias")
 @Validated
 public class CategoriaController {
-    @Autowired
+
     private CategoriaService categoriaService;
 
     @GetMapping
