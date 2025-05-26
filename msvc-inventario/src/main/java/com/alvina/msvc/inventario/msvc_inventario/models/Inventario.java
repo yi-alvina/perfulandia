@@ -15,6 +15,7 @@ import lombok.ToString;
 @Table(name = "inventarios")
 @Getter @Setter @NoArgsConstructor @ToString
 public class Inventario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "inventario_id")

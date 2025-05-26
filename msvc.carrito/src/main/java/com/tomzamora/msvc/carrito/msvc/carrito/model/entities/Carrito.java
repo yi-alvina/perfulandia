@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
+import java.util.Date;
+
 @Getter @Setter @ToString
 @NoArgsConstructor @AllArgsConstructor
 @Entity
@@ -31,18 +33,18 @@ public class Carrito {
     private String nombreUsuario;
 
     @Column(name = "fecha", nullable = false)
-    private Long fecha;
+    private Date fecha;
 
-    @Column(name = "detalle_carrito", nullable = false)
-    private String detalleCarrito;
+    @Column(name = "producto", nullable = false)
+    private Long idProducto;
 
     @Column(name = "precio_total", nullable = false)
-    private Long precioTotal;
+    private Integer precioTotal;
 
     @Column(name = "cantidad", nullable = false)
-    private Long cantidad;
+    private Integer cantidad;
 
     @Column(name = "precio", nullable = false)
-    private Long precio;
+    private Integer precio;
 
 }
