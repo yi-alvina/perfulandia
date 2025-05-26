@@ -13,4 +13,5 @@ public interface ProductoService {
     Producto updateByProductoId(Long productoId, Producto producto);
     Producto findByPalabraClave(String palabraClave);
     Producto findByNombreProducto(String nombreProducto);
+    Producto findByPalabraClaveLike(String palabraClave);
 }

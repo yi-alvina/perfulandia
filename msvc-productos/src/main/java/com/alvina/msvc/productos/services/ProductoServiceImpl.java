@@ -5,6 +5,7 @@ import com.alvina.msvc.productos.exceptions.ProductoException;
 import com.alvina.msvc.productos.models.Producto;
 import com.alvina.msvc.productos.repositories.CategoriaRepository;
 import com.alvina.msvc.productos.repositories.ProductoRepository;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,10 +33,11 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public Producto findByPalabraClave(String palabraClave){
-        return productoRepository.findByPalabraClave(palabraClave).orElseThrow(
+        return productoRepository.findByPalabraClave(palabraClave) .orElseThrow(
                 () -> new ProductoException("No hay productos bajo la palabra clave: "+ palabraClave)
         );
     }
+
 
     @Override
     public Producto findByNombreProducto(String nombreProducto){
@@ -70,5 +72,12 @@ public class ProductoServiceImpl implements ProductoService {
         }
         return productoRepository.save(producto);
         }
+
+    public Producto findByPalabraClaveLike(String palabraClave){
+        return productoRepository.findByPalabraClave(palabraClave).orElseThrow(
+                () -> new ProductoException("No hay productos bajo la palabra clave: "+ palabraClave)
+        );
+
+    }
 
 }

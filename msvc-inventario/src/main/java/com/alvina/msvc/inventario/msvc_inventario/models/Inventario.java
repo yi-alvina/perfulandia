@@ -1,5 +1,4 @@
 package com.alvina.msvc.inventario.msvc_inventario.models;
-
 import com.alvina.msvc.productos.models.Categoria;
 import com.alvina.msvc.productos.models.Producto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -23,8 +22,9 @@ public class Inventario {
     @Column(nullable = false)
     private Integer cantidadProducto;
 
+    private Long idProducto;
 
-
+    private Long idSucursal;
 
 
 
