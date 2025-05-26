@@ -14,12 +14,11 @@ public class CarritoDTO {
 
     private Long idCarrito;
     private Long idUsuario;
-    private Long precioUnitario;
+    private Integer precioUnitario;
     private String nombreUsuario;
     private Date fecha;
-    private String detalleCarrito;
-    private Long precioTotal;
-    private Long Cantidad;
-    private Long Precio;
+    private Integer precioTotal;
+    private Integer Cantidad;
+    private Integer Precio;
 
 }

@@ -17,38 +17,19 @@ public class Venta {
     @Column(name = "id_venta", nullable = false, unique = true)
     private Long idVenta;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Detalle_Venta", nullable = false, unique = true)
-    private String DetalleVenta;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Valor", nullable = false, unique = true)
+    @Column(name = "Valor")
     private Long Valor;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cantidad", nullable = false, unique = true)
+    @Column(name = "cantidad")
     private Long Cantidad;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "fecha", nullable = false, unique = true)
+    @Column(name = "fecha")
     private Date Fecha;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cliente", nullable = false, unique = true)
-    private String Cliente;
+    @Column(name = "cliente")
+    private Long idCliente;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Vendedor", nullable = false, unique = true)
-    private String Vendedor;
+    @Column(name = "sucursal")
+    private Long idSucursal;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Estado_venta", nullable = false, unique = true)
-    private String EstadoVenta;
 }

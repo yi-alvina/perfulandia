@@ -28,7 +28,7 @@ public class VentaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Venta> findById(@PathVariable Long id) {
-        Venta venta = this.ventaService.findById();
+        Venta venta = this.ventaService.findById(id);
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(venta);

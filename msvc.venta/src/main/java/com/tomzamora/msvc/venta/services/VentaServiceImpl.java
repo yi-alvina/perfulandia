@@ -2,7 +2,7 @@ package com.tomzamora.msvc.venta.services;
 
 import com.tomzamora.msvc.venta.clients.UsuarioClienteRest;
 import com.tomzamora.msvc.venta.exception.VentaException;
-import com.tomzamora.msvc.venta.model.Venta;
+import com.tomzamora.msvc.venta.model.entities.Venta;
 import com.tomzamora.msvc.venta.repositories.VentaReporitory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +15,7 @@ public class VentaServiceImpl implements VentaService {
 
     @Autowired
     private UsuarioClienteRest usuarioClienteRest;
+
     @Autowired
     private VentaReporitory ventaReporitory;
 

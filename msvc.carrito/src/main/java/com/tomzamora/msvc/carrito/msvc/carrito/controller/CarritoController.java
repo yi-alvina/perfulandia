@@ -1,14 +1,14 @@
 package com.tomzamora.msvc.carrito.msvc.carrito.controller;
 
-import com.tomzamora.msvc.carrito.msvc.carrito.model.Carrito;
+import com.tomzamora.msvc.carrito.msvc.carrito.model.entities.Carrito;
 import com.tomzamora.msvc.carrito.msvc.carrito.repositories.CarritoRepository;
+import com.tomzamora.msvc.carrito.msvc.carrito.services.CarritoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,13 +18,22 @@ import java.util.List;
 public class CarritoController {
 
     @Autowired
-    private CarritoRepository carritoRepository;
+    private CarritoService carritoService;
 
     @GetMapping
-    public ResponseEntity<List<Carrito>> findAll() {
-        List<Carrito> carritos = this.carritoRepository.findAll();
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(carritos);
+    public ResponseEntity<List<Carrito>> findAll(){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(carritoService.findAll());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Carrito> findById(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(carritoService.findById(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<Carrito> save(@RequestBody @Valid Carrito carrito){
+        return ResponseEntity.status(HttpStatus.CREATED).body(carritoService.save(carrito));
+    }
+
     }

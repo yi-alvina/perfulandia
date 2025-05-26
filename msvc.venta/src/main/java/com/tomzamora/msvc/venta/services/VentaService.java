@@ -1,6 +1,6 @@
 package com.tomzamora.msvc.venta.services;
 
-import com.tomzamora.msvc.venta.model.Venta;
+import com.tomzamora.msvc.venta.model.entities.Venta;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -19,24 +19,15 @@ public class Carrito {
     @Column(name = "id_carrito", nullable = false, unique = true)
     private Long idCarrito;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario", nullable = false, unique = true)
-    private Long idUsuario;
-
     @Column(name = "precio_unitario", nullable = false, unique = true)
     @Pattern(regexp = "\\d{1,8}-[\\dkK]", message = "El precio debe ser registrado")
     private String precioUnitario;
 
-    @Column(name = "nombre_usuario", nullable = false)
-    @NotBlank(message = "El campo no puede ser vacio")
-    private String nombreUsuario;
-
-    @Column(name = "fecha", nullable = false)
-    private Date fecha;
-
     @Column(name = "producto", nullable = false)
     private Long idProducto;
+
+    @Column(name = "venta", nullable = false)
+    private Long idVenta;
 
     @Column(name = "precio_total", nullable = false)
     private Integer precioTotal;
