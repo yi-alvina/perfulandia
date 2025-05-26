@@ -1,7 +1,7 @@
-package com.alvina.msvc.productos.controllers;
+package com.alvina.msvc.inventario.msvc_inventario.controllers;
 
-import com.alvina.msvc.productos.models.Categoria;
-import com.alvina.msvc.productos.services.CategoriaService;
+import com.alvina.msvc.inventario.msvc_inventario.models.Inventario;
+import com.alvina.msvc.inventario.msvc_inventario.services.InventarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,42 +11,39 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
-
 @RestController
-@RequestMapping("/api/v1/categorias")
+@RequestMapping("/api/v1/inventario")
 @Validated
-public class CategoriaController {
-
-    private CategoriaService categoriaService;
+public class InventarioController {
+    @Autowired
+    private InventarioService inventarioService;
 
     @GetMapping
-    public ResponseEntity<List<Categoria>> findAll() {
+    public ResponseEntity<List<Inventario>> findAll() {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                . body(categoriaService.findAll());
+                .body(inventarioService.findAll());
     }
-
     @GetMapping("/{id}")
-    public ResponseEntity<Categoria> findById(@PathVariable Long id) {
+    public ResponseEntity<Inventario> findById(@PathVariable Long id){
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(categoriaService.findByCategoriaId(id));
+                .body(inventarioService.findById(id));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletebyId(@PathVariable Long id) {
-        categoriaService.deleteByCategoriaId(id);
+        inventarioService.deleteById(id);
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .build();
     }
 
     @PostMapping
-    public ResponseEntity<Categoria> save(@Valid @RequestBody Categoria categoria){
+    public ResponseEntity<Inventario> save(@Valid @RequestBody Inventario inventario){
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(categoriaService.save(categoria));
+                .body(inventarioService.save(inventario));
     }
-
 }
+
