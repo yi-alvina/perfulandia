@@ -20,25 +20,22 @@ public class VentaController {
 
     @GetMapping
     public ResponseEntity<List<Venta>> findAll() {
-        List<Venta> ventas = this.ventaService.findAll();
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(ventas);
+                .body(ventaService.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Venta> findById(@PathVariable Long id) {
-        Venta venta = this.ventaService.findById(id);
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(venta);
+                .body( ventaService.findById(id));
     }
 
     @PostMapping
     public ResponseEntity<Venta> save(@RequestBody @Validated Venta venta) {
-        Venta saved = this.ventaService.save(venta);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(saved);
+                .body(ventaService.save(venta));
     }
 }
