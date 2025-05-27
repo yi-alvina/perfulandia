@@ -9,13 +9,7 @@ import lombok.*;
 @Getter @Setter @ToString
 @NoArgsConstructor @AllArgsConstructor
 public class Sucursal {
-
-
     private Long id;
-
-
-    private String nombreSucursal;
-
-
-    private String direccion;
+    private Long nombreSucursal;
+    private Long direccion;
 }

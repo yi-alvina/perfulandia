@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Getter @Setter
 @NoArgsConstructor
-@ToString @AllArgsConstructor @Entity
+@ToString @Entity
 @Table(name = "Venta")
 
 public class
@@ -28,10 +28,8 @@ Venta {
     @Column(name = "fecha")
     private Date Fecha;
 
-    @Column(name = "cliente")
     private Long idCliente;
 
-    @Column(name = "sucursal")
     private Long idSucursal;
 
 }

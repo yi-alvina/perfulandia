@@ -17,7 +17,7 @@ public class Inventario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "inventario_id")
+    @Column(name = "inventario_id",  nullable = false, unique = true)
     private Long inventarioId;
 
     @Column(nullable = false)
