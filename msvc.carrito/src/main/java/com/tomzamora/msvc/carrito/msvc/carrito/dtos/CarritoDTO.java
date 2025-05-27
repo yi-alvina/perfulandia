@@ -13,12 +13,11 @@ import java.util.Date;
 public class CarritoDTO {
 
     private Long idCarrito;
-    private Long idUsuario;
     private Integer precioUnitario;
-    private String nombreUsuario;
-    private Date fecha;
     private Integer precioTotal;
     private Integer Cantidad;
     private Integer Precio;
+    private VentaDTO idVenta;
+    private ProductosDTO idProducto;
 
 }
