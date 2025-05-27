@@ -28,4 +28,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario save(Usuario usuario){
         return this.usuarioRespository.save(usuario);
     }
+
+    @Override
+    public void deleteUsusarioById(Long usuarioId) {
+        usuarioRespository.deleteById(usuarioId);
+    }
 }

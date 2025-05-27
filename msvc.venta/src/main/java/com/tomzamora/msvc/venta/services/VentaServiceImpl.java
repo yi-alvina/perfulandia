@@ -23,7 +23,6 @@ public class VentaServiceImpl implements VentaService {
     @Autowired
     private SucursalClientsRest sucursalClientsRest;
 
-
     @Autowired
     private VentaReporitory ventaReporitory;
 
@@ -33,9 +32,9 @@ public class VentaServiceImpl implements VentaService {
     }
 
     @Override
-    public Venta findById(Long idVenta) {
-        return this.ventaReporitory.findById(idVenta).orElseThrow(
-                ()-> new VentaException("La venta con el id"+idVenta+"no ha sido realizada")
+    public Venta findById(Long id) {
+        return this.ventaReporitory.findById(id).orElseThrow(
+                () -> new VentaException("El carrito con el id " + id + " no existe.")
         );
     }
 

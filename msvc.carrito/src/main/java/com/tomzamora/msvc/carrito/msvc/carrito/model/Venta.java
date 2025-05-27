@@ -13,4 +13,5 @@ public class Venta {
         private Integer Cantidad;
         private Date Fecha;
         private Long idCliente;
+
 }
