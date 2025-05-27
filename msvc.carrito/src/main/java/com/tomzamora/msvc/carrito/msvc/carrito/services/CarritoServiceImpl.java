@@ -2,6 +2,7 @@ package com.tomzamora.msvc.carrito.msvc.carrito.services;
 
 import com.tomzamora.msvc.carrito.msvc.carrito.clients.ProductosClientRest;
 import com.tomzamora.msvc.carrito.msvc.carrito.clients.VentaClientRest;
+import com.tomzamora.msvc.carrito.msvc.carrito.dtos.CarritoDTO;
 import com.tomzamora.msvc.carrito.msvc.carrito.exceptions.CarritoException;
 import com.tomzamora.msvc.carrito.msvc.carrito.model.Producto;
 import com.tomzamora.msvc.carrito.msvc.carrito.model.Venta;

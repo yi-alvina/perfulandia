@@ -1,5 +1,6 @@
 package com.tomzamora.msvc.carrito.msvc.carrito.controller;
 
+import com.tomzamora.msvc.carrito.msvc.carrito.dtos.CarritoDTO;
 import com.tomzamora.msvc.carrito.msvc.carrito.model.entities.Carrito;
 import com.tomzamora.msvc.carrito.msvc.carrito.repositories.CarritoRepository;
 import com.tomzamora.msvc.carrito.msvc.carrito.services.CarritoService;
@@ -17,7 +18,7 @@ import java.util.List;
 @Validated
 public class CarritoController {
 
-
+    @Autowired
     private CarritoService carritoService;
 
     @GetMapping

@@ -2,7 +2,7 @@ package com.tomzamora.msvc.carrito.msvc.carrito.dtos;
 
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -14,5 +14,5 @@ public class VentaDTO {
 
     private Integer Valor;
     private Integer Cantidad;
-    private Date Fecha;
+    private LocalDateTime Fecha;
 }
