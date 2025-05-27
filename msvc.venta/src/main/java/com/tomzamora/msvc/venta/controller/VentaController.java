@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/v1/ventas")
 @RestController
 @Validated
-public class VentaController {
+public class VentaController{
 
     @Autowired
     private VentaService ventaService;
@@ -26,14 +26,14 @@ public class VentaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Venta> findById(@PathVariable Long id) {
+    public Venta findById(@PathVariable Long id) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body( ventaService.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Venta> save(@RequestBody @Validated Venta venta) {
+    public Venta save(@RequestBody @Validated Venta venta) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(ventaService.save(venta));

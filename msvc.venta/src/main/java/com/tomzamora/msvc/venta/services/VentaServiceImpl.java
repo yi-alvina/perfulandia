@@ -9,6 +9,7 @@ import com.tomzamora.msvc.venta.model.entities.Venta;
 import com.tomzamora.msvc.venta.repositories.VentaReporitory;
 import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class VentaServiceImpl implements VentaService {
 
     @Override
     public List<Venta> findAll() {
-        return ventaReporitory.findAll() ;
+        return this.findAll() ;
     }
 
     @Override
