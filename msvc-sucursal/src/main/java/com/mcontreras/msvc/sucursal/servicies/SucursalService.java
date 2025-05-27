@@ -10,4 +10,8 @@ public interface SucursalService {
     List<Sucursal> findAll();
     Sucursal findById(long id);
     Sucursal save(Sucursal sucursal);
+    Sucursal updateUsuarioById(Long Id, Sucursal sucursalUpdate);
+    void deleteSucursalById(Long sucursalId);
+
+
 }

@@ -30,8 +30,25 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void deleteUsusarioById(Long usuarioId) {
-        usuarioRespository.deleteById(usuarioId);
+    public Usuario updateUsuarioById(Long Id, Usuario usuarioUpdate) {
+        return usuarioRespository.findById(Id).map(usuario -> {
+            usuario.setNombres(usuarioUpdate.getNombres());
+            usuario.setApellidos(usuarioUpdate.getApellidos());
+            usuario.setCorreo(usuarioUpdate.getCorreo());
+            return usuarioRespository.save(usuario);
+        }).orElseThrow(
+                () -> new UsuarioException("El usuario con el id "+Id+" no fue encontrado")
+        );
+
     }
+    @Override
+    public void deleteUsuarioById(Long usuarioId) {
+        Usuario usuario = usuarioRespository.findById(usuarioId)
+                .orElseThrow(() -> new UsuarioException("El usuario con id " + usuarioId + " no fue encontrado"));
+
+        usuarioRespository.delete(usuario);
+    }
+
+
 
 }

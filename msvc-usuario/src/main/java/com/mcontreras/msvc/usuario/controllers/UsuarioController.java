@@ -32,14 +32,23 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<Usuario> save(@RequestBody @Valid Usuario usuario) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(usuarioService.save(usuario));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> update(@PathVariable @RequestBody @Valid Long id,  Usuario usuario) {
+        Usuario usuarioUpdate = usuarioService.updateUsuarioById(id, usuario);
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioUpdate);
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletebyId(@PathVariable Long id) {
-        usuarioService.deleteUsusarioById(id);
+        usuarioService.deleteUsuarioById(id);
         return ResponseEntity
-                .status(HttpStatus.OK)
+                .noContent()
                 .build();
     }
 }

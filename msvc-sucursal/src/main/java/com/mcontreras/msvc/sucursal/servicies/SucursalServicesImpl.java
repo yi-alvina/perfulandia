@@ -33,4 +33,24 @@ public class SucursalServicesImpl implements SucursalService {
         sucursalEntity.setDireccion( sucursal.getDireccion());
         return this.sucursalRespository.save(sucursalEntity);
     }
+
+    @Override
+    public Sucursal updateUsuarioById(Long Id, Sucursal sucursalUpdate) {
+        return sucursalRespository.findById(Id).map(sucursal -> {
+            sucursal.setNombreSucursal(sucursalUpdate.getNombreSucursal());
+            sucursal.setDireccion(sucursalUpdate.getDireccion());
+            return sucursalRespository.save(sucursal);
+        }).orElseThrow(
+                () -> new SucursalException("Sucursal con el id "+Id+" no encontrado.")
+        );
+    }
+
+    @Override
+    public void deleteSucursalById(Long sucursalId) {
+        Sucursal usuario = sucursalRespository.findById(sucursalId).orElseThrow(
+                () -> new SucursalException("Sucursal con id " + sucursalId + " no fue encontrado"));
+
+        sucursalRespository.delete(usuario);
+    }
+
 }
