@@ -26,14 +26,14 @@ public class VentaController{
     }
 
     @GetMapping("/{id}")
-    public Venta findById(@PathVariable Long id) {
+    public ResponseEntity<Venta> findById(@PathVariable Long id) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body( ventaService.findById(id));
+                .body(ventaService.findById(id));
     }
 
     @PostMapping
-    public Venta save(@RequestBody @Validated Venta venta) {
+    public ResponseEntity<Venta> save(@RequestBody @Validated Venta venta) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(ventaService.save(venta));

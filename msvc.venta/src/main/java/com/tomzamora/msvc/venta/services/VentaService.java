@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface VentaService {
 
-    ResponseEntity<List<Venta>> findAll() ;
+    List<Venta> findAll() ;
     Venta findById(Long idVenta);
     Venta save(Venta venta);
 }

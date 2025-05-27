@@ -29,7 +29,7 @@ public class VentaServiceImpl implements VentaService {
 
     @Override
     public List<Venta> findAll() {
-        return this.findAll() ;
+        return ventaReporitory.findAll() ;
     }
 
     @Override
