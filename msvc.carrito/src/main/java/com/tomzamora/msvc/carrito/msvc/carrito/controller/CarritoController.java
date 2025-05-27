@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/v1/carrito")
 @Validated
 public class CarritoController {
 
-    @Autowired
+
     private CarritoService carritoService;
 
     @GetMapping

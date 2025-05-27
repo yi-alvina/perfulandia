@@ -28,7 +28,7 @@ public class VentaServiceImpl implements VentaService {
 
     @Override
     public List<Venta> findAll() {
-        return this.findAll() ;
+        return ventaReporitory.findAll() ;
     }
 
     @Override
@@ -52,6 +52,6 @@ public class VentaServiceImpl implements VentaService {
         } catch (FeignException exception) {
             throw new VentaException("El producto con el id " + venta.getIdSucursal() + " no fue encontrado.");
         }
-        return this.ventaReporitory.save(venta);
+        return ventaReporitory.save(venta);
     }
 }
