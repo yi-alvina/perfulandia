@@ -9,6 +9,7 @@ import com.tomzamora.msvc.venta.model.entities.Venta;
 import com.tomzamora.msvc.venta.repositories.VentaReporitory;
 import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,6 +53,6 @@ public class VentaServiceImpl implements VentaService {
         } catch (FeignException exception) {
             throw new VentaException("El producto con el id " + venta.getIdSucursal() + " no fue encontrado.");
         }
-        return this.ventaReporitory.save(venta);
+        return ventaReporitory.save(venta);
     }
 }

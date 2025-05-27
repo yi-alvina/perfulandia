@@ -34,4 +34,12 @@ public class UsuarioController {
     public ResponseEntity<Usuario> save(@RequestBody @Valid Usuario usuario) {
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletebyId(@PathVariable Long id) {
+        usuarioService.deleteUsusarioById(id);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .build();
+    }
 }

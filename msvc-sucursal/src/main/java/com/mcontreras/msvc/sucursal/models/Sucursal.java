@@ -13,7 +13,6 @@ public class Sucursal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull(message = "El campo id no puede ser nulo")
     @Column(name = "id_sucursal")
     private Long id;
 

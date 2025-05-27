@@ -10,35 +10,32 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping
+@RequestMapping("/api/v1/ventas")
 @RestController
 @Validated
-public class VentaController {
+public class VentaController{
 
     @Autowired
     private VentaService ventaService;
 
     @GetMapping
     public ResponseEntity<List<Venta>> findAll() {
-        List<Venta> ventas = this.ventaService.findAll();
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(ventas);
+                .body(ventaService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Venta> findById(@PathVariable Long id) {
-        Venta venta = this.ventaService.findById(id);
+    public Venta findById(@PathVariable Long id) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(venta);
+                .body( ventaService.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Venta> save(@RequestBody @Validated Venta venta) {
-        Venta saved = this.ventaService.save(venta);
+    public Venta save(@RequestBody @Validated Venta venta) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(saved);
+                .body(ventaService.save(venta));
     }
 }
