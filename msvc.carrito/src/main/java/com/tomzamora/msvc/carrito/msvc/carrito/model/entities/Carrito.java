@@ -23,7 +23,6 @@ public class Carrito {
     @Pattern(regexp = "\\d{1,8}-[\\dkK]", message = "El precio debe ser registrado")
     private String precioUnitario;
 
-    @Column(name = "producto", nullable = false)
     private Long idProducto;
 
     @Column(name = "venta", nullable = false)
@@ -35,7 +34,8 @@ public class Carrito {
     @Column(name = "cantidad", nullable = false)
     private Integer cantidad;
 
-    @Column(name = "precio", nullable = false)
-    private Integer precio;
+
+
+
 
 }

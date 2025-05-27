@@ -11,8 +11,8 @@ public class Producto {
 
 
     private Long productoId;
-    private String nombreProducto;
-    private String palabraClave;
-    private Integer precio;
+    private Long nombreProducto;
+    private Long palabraClave;
+    private Long precio;
 
 }

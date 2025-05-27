@@ -14,7 +14,7 @@ import lombok.ToString;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "idProducto")
+    @Column(name= "idProducto",  nullable = false, unique = true)
     private Long productoId;
 
     @Column(name="Nombre_producto", nullable = false)
