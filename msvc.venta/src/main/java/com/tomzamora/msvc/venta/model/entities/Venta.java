@@ -3,7 +3,7 @@ package com.tomzamora.msvc.venta.model.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter @Setter
 @NoArgsConstructor
@@ -26,7 +26,7 @@ Venta {
     private Long Cantidad;
 
     @Column(name = "fecha")
-    private Date Fecha;
+    private LocalDateTime Fecha;
 
     private Long idCliente;
 
