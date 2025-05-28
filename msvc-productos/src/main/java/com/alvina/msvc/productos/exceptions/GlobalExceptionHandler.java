@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ProductoException.class)
     public ResponseEntity<ErrorDTO> handleProductoException(ProductoException exception){
-        Map<String,String> errorMap = Collections.singletonMap("Paciente Error", exception.getMessage());
+        Map<String,String> errorMap = Collections.singletonMap("Producto Error", exception.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(this.createErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(), errorMap));
 

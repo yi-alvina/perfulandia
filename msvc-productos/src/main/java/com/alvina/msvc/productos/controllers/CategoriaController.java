@@ -18,6 +18,7 @@ import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 @Validated
 public class CategoriaController {
 
+    @Autowired
     private CategoriaService categoriaService;
 
     @GetMapping

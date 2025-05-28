@@ -3,6 +3,7 @@ package com.alvina.msvc.productos.services;
 import com.alvina.msvc.productos.exceptions.ProductoException;
 import com.alvina.msvc.productos.models.Producto;
 import com.alvina.msvc.productos.repositories.ProductoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @Service
 public class ProductoServiceImpl implements ProductoService {
 
+    @Autowired
     private ProductoRepository productoRepository;
 
     @Transactional(readOnly = true)

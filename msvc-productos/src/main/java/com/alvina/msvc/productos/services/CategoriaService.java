@@ -2,6 +2,7 @@ package com.alvina.msvc.productos.services;
 
 import com.alvina.msvc.productos.models.Categoria;
 import jakarta.validation.Valid;
+import org.springframework.stereotype.Service;
 
 
 import java.util.List;
