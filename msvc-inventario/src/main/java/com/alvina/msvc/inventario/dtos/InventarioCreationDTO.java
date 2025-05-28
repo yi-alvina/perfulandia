@@ -1,4 +1,4 @@
-package com.alvina.msvc.inventario.msvc_inventario.dtos;
+package com.alvina.msvc.inventario.dtos;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

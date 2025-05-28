@@ -1,7 +1,8 @@
-package com.alvina.msvc.inventario.msvc_inventario.controllers;
+package com.alvina.msvc.inventario.controllers;
 
-import com.alvina.msvc.inventario.msvc_inventario.models.Inventario;
-import com.alvina.msvc.inventario.msvc_inventario.services.InventarioService;
+import com.alvina.msvc.inventario.models.Inventario;
+import com.alvina.msvc.inventario.services.InventarioService;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,8 +1,8 @@
-package com.alvina.msvc.inventario.msvc_inventario.services;
-
-import com.alvina.msvc.inventario.msvc_inventario.models.Inventario;
+package com.alvina.msvc.inventario.services;
 
 import java.util.List;
+
+import com.alvina.msvc.inventario.models.Inventario;
 
 public interface InventarioService {
     List<Inventario> findAll();

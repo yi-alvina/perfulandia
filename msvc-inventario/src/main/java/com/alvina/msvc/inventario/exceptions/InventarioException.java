@@ -1,4 +1,4 @@
-package com.alvina.msvc.inventario.msvc_inventario.exceptions;
+package com.alvina.msvc.inventario.exceptions;
 
 public class InventarioException  extends RuntimeException{
     public InventarioException(String message){

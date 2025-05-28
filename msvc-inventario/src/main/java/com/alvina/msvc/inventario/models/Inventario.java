@@ -1,4 +1,4 @@
-package com.alvina.msvc.productos.models;
+package com.alvina.msvc.inventario.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -6,25 +6,29 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "categorias")
+@Table(name = "inventarios")
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
-public class Categoria {
+@ToString
+public class Inventario {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "categoria_id")
-	private Long categoriaId;
+	@Column(name = "inventario_id", nullable = false, unique = true)
+	private Long inventarioId;
 
-	@Column(unique = true, nullable = false, name = "tipo_categoria")
-	@NotBlank(message = "El campo categoria no puede ser nulo")
-	private String nombreCategoria;
+	@Column(nullable = false)
+	private Integer cantidadProducto;
+
+	private Long idProducto;
+
+	private Long idSucursal;
+
 }
