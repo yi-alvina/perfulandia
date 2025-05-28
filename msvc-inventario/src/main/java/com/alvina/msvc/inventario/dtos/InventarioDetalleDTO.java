@@ -1,4 +1,4 @@
-package com.alvina.msvc.inventario.msvc_inventario.dtos;
+package com.alvina.msvc.inventario.dtos;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
