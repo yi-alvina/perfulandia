@@ -1,9 +1,10 @@
 package com.tomzamora.msvc.venta.model.entities;
 
+import com.tomzamora.msvc.venta.model.Audit;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter @Setter
 @NoArgsConstructor
@@ -26,10 +27,13 @@ Venta {
     private Long Cantidad;
 
     @Column(name = "fecha")
-    private Date Fecha;
+    private LocalDateTime Fecha;
 
     private Long idCliente;
 
     private Long idSucursal;
+
+    @Embedded
+    private Audit audit = new Audit();
 
 }

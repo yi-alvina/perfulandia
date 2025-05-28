@@ -13,15 +13,9 @@ public class Usuario {
 
 
     private Long idUsuario;
-
     private String run;
-
-
     private String nombres;
-
-
     private String apellidos;
-
     private String correo;
 
 }

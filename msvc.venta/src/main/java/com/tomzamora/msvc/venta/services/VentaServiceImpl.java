@@ -21,6 +21,7 @@ public class VentaServiceImpl implements VentaService {
     @Autowired
     private SucursalClientsRest sucursalClientsRest;
 
+    @Autowired
     private VentaReporitory ventaReporitory;
 
     @Override

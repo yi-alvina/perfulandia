@@ -11,5 +11,4 @@ import java.util.Optional;
 
 public interface VentaReporitory extends JpaRepository<Venta,Long> {
 
-    Optional<Venta> findById(Long idVenta);
 }
