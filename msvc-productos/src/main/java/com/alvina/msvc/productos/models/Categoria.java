@@ -13,18 +13,18 @@ import java.util.List;
 
 @Entity
 @Table(name = "categorias")
-@Getter @Setter @ToString @NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "categoria_id")
+    @Column(name = "categoria_id", unique = true, nullable = false)
     private Long categoriaId;
 
-    @Column(unique = true, nullable = false, name = "tipo_categoria")
+    @Column(name = "tipo_categoria", unique = true, nullable = false)
     @NotBlank(message = "El campo categoria no puede ser nulo")
     private String nombreCategoria;
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonBackReference("categoria-producto")
-    private List<RegistroCategoria> productos = new ArrayList<>();
 }

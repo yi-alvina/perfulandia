@@ -1,7 +1,5 @@
 package com.alvina.msvc.inventario.msvc_inventario.exceptions;
-
-import com.alvina.msvc.productos.dtos.ErrorDTO;
-import com.alvina.msvc.productos.exceptions.ProductoException;
+import com.alvina.msvc.inventario.msvc_inventario.dtos.ErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -32,9 +30,9 @@ public class GlobalExceptionHandler {
                 .body(this.createErrorDTO(HttpStatus.BAD_REQUEST.value(), new Date(), errorMap));
     }
 
-    @ExceptionHandler(ProductoException.class)
-    public ResponseEntity<ErrorDTO> handleProductoException(ProductoException exception){
-        Map<String,String> errorMap = Collections.singletonMap("Paciente Error", exception.getMessage());
+    @ExceptionHandler(InventarioException.class)
+    public ResponseEntity<ErrorDTO> handleInventarioException(InventarioException exception){
+        Map<String,String> errorMap = Collections.singletonMap("Inventario Error", exception.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(this.createErrorDTO(HttpStatus.NOT_FOUND.value(), new Date(), errorMap));
 

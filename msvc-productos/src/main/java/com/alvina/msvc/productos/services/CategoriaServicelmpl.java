@@ -4,10 +4,12 @@ import com.alvina.msvc.productos.exceptions.CategoriaException;
 import com.alvina.msvc.productos.models.Categoria;
 import com.alvina.msvc.productos.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class CategoriaServicelmpl implements CategoriaService {
 
     private CategoriaRepository categoriaRepository;
