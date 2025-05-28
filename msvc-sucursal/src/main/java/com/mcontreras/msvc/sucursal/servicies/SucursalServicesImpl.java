@@ -16,7 +16,7 @@ public class SucursalServicesImpl implements SucursalService {
 
     @Override
     public List<Sucursal> findAll() {
-        return this.findAll();
+        return this.sucursalRespository.findAll();
     }
 
     @Override
@@ -35,7 +35,7 @@ public class SucursalServicesImpl implements SucursalService {
     }
 
     @Override
-    public Sucursal updateUsuarioById(Long Id, Sucursal sucursalUpdate) {
+    public Sucursal updateSucursalById(Long Id, Sucursal sucursalUpdate) {
         return sucursalRespository.findById(Id).map(sucursal -> {
             sucursal.setNombreSucursal(sucursalUpdate.getNombreSucursal());
             sucursal.setDireccion(sucursalUpdate.getDireccion());

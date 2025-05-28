@@ -35,4 +35,19 @@ public class SucursalController {
     public ResponseEntity<Sucursal> save(@RequestBody @Valid Sucursal sucursal) {
         return ResponseEntity.status(HttpStatus.CREATED).body(sucursalService.save(sucursal));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Sucursal> update(@PathVariable Long id,@RequestBody @Valid Sucursal sucursal) {
+        Sucursal sucursalUpdate = sucursalService.updateSucursalById(id, sucursal);
+        return ResponseEntity.status(HttpStatus.OK).body(sucursalUpdate);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletebyId(@PathVariable Long id) {
+        sucursalService.deleteSucursalById(id);
+        return ResponseEntity
+                .noContent()
+                .build();
+    }
 }
+
