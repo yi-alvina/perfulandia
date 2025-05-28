@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 public class CategoriaServicelmpl implements CategoriaService {
 
+    @Autowired
     private CategoriaRepository categoriaRepository;
 
     @Transactional(readOnly = true)

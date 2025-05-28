@@ -23,7 +23,7 @@ public class Categoria {
     @Column(name = "categoria_id", unique = true, nullable = false)
     private Long categoriaId;
 
-    @Column(name = "tipo_categoria", unique = true, nullable = false)
+    @Column(unique = true, nullable = false)
     @NotBlank(message = "El campo categoria no puede ser nulo")
     private String nombreCategoria;
 
