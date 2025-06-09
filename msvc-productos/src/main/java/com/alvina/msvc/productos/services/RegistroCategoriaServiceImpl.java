@@ -46,7 +46,7 @@ public class RegistroCategoriaServiceImpl implements RegistroCategoriaService{
     Categoria categoria = categoriaRepository.findById(
             registroCategoria.getCategoriaId()
     ).orElseThrow(
-            () -> new CategoriaException("La categoria con id "+ registroCategoria.getCategoriaId() + registroCategoria.getCategoriaId() + " no existe")
+            () -> new CategoriaException("La categoria con id "+ registroCategoria.getCategoriaId() + " no existe")
     );
 
     Producto producto = productoRepository.findById(
