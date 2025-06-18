@@ -1,6 +1,6 @@
-package com.mcontreras.msvc.sucursal.exceptions;
+package com.mcontreras.msvc.usuario.exceptions;
 
-import com.mcontreras.msvc.sucursal.dtos.ErrorDTO;
+import com.mcontreras.msvc.usuario.dtos.ErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

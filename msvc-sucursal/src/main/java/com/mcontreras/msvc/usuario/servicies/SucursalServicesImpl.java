@@ -1,8 +1,8 @@
-package com.mcontreras.msvc.sucursal.servicies;
+package com.mcontreras.msvc.usuario.servicies;
 
-import com.mcontreras.msvc.sucursal.exceptions.SucursalException;
-import com.mcontreras.msvc.sucursal.models.Sucursal;
-import com.mcontreras.msvc.sucursal.repositories.SucursalRespository;
+import com.mcontreras.msvc.usuario.exceptions.SucursalException;
+import com.mcontreras.msvc.usuario.models.Sucursal;
+import com.mcontreras.msvc.usuario.repositories.SucursalRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
