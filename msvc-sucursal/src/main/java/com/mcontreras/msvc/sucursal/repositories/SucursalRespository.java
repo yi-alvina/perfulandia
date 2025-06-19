@@ -1,6 +1,6 @@
-package com.mcontreras.msvc.usuario.repositories;
+package com.mcontreras.msvc.sucursal.repositories;
 
-import com.mcontreras.msvc.usuario.models.Sucursal;
+import com.mcontreras.msvc.sucursal.models.Sucursal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

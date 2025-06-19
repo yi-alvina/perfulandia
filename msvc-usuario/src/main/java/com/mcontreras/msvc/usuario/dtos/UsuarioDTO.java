@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.usuario.dtos;
+package com.mcontreras.msvc.sucursal.dtos;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;

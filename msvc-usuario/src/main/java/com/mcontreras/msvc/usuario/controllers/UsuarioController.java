@@ -1,7 +1,7 @@
-package com.mcontreras.msvc.usuario.controllers;
+package com.mcontreras.msvc.sucursal.controllers;
 
-import com.mcontreras.msvc.usuario.models.entities.Usuario;
-import com.mcontreras.msvc.usuario.servicies.UsuarioService;
+import com.mcontreras.msvc.sucursal.models.entities.Usuario;
+import com.mcontreras.msvc.sucursal.servicies.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
