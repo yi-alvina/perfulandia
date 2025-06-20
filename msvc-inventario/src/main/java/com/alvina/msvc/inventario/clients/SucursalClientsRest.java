@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "msvc-sucursal", url = "localhost:8001/api/v1/sucursales")
 public interface SucursalClientsRest {
 
-    @GetMapping("/{id}")
-    Sucursal findById(@PathVariable int id);
+    @GetMapping("/sucursal/{id}")
+    Sucursal findById(@PathVariable Long id);
 }

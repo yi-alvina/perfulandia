@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.alvina.msvc.inventario.models.Inventario;
 
+import java.util.Optional;
+
 @Repository
 public interface InventarioRepository extends JpaRepository<Inventario, Long> {
+    Optional<Inventario> findByinventarioId(Long inventarioId);
 }
