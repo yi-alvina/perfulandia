@@ -1,6 +1,6 @@
-package com.mcontreras.msvc.sucursal.servicies;
+package com.mcontreras.msvc.usuario.servicies;
 
-import com.mcontreras.msvc.sucursal.models.Sucursal;
+import com.mcontreras.msvc.usuario.models.Sucursal;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
