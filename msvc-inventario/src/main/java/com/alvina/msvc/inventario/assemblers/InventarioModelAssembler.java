@@ -1,11 +1,13 @@
 package com.alvina.msvc.inventario.assemblers;
 
 import com.alvina.msvc.inventario.controllers.InventarioControllerV2;
-import com.alvina.msvc.inventario.models.Inventario;
+import com.alvina.msvc.inventario.models.entity.Inventario;
 import org.springframework.stereotype.Component;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Component
 public class InventarioModelAssembler implements RepresentationModelAssembler<Inventario, EntityModel<Inventario>>{

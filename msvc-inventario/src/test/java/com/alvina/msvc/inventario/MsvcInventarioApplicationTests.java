@@ -1,4 +1,4 @@
-package com.alvina.msvc.inventario.msvc.inventario;
+package com.alvina.msvc.inventario;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

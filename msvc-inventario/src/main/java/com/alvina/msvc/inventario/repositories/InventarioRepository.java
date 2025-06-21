@@ -3,7 +3,7 @@ package com.alvina.msvc.inventario.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.alvina.msvc.inventario.models.Inventario;
+import com.alvina.msvc.inventario.models.entity.Inventario;
 
 import java.util.Optional;
 

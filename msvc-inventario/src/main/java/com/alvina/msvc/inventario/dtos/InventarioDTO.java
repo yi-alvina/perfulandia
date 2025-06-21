@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Setter @Getter @ToString @NoArgsConstructor
-public class Inventari0DTO {
+public class InventarioDTO {
     private Long inventarioId;
     private Long sucursalId;
     private Long productoId;

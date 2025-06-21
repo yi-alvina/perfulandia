@@ -1,10 +1,9 @@
 package com.alvina.msvc.inventario.controllers;
 
 import com.alvina.msvc.inventario.dtos.ErrorDTO;
-import com.alvina.msvc.inventario.models.Inventario;
+import com.alvina.msvc.inventario.models.entity.Inventario;
 import com.alvina.msvc.inventario.services.InventarioService;
 
-import com.jayway.jsonpath.internal.path.ArraySliceOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

@@ -36,14 +36,14 @@ public class RegistroCategoriaController {
     }
 
     @PostMapping
-    public ResponseEntity<RegistroCategoria> save(@Valid @RequestBody RegistroCategoriaDTO registroCategoria) {
+    public ResponseEntity<RegistroCategoria> save(@Valid @RequestBody RegistroCategoria registroCategoria) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(registroCategoriaService.save(registroCategoria));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<RegistroCategoria> delete(@Valid @RequestBody RegistroCategoriaDTO registroCategoria) {
+    public ResponseEntity<RegistroCategoria> delete(@Valid @RequestBody RegistroCategoria registroCategoria) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .build();

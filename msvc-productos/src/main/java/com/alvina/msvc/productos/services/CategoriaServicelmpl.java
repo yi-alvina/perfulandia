@@ -2,6 +2,8 @@ package com.alvina.msvc.productos.services;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +14,9 @@ import com.alvina.msvc.productos.repositories.CategoriaRepository;
 
 @Service
 public class CategoriaServicelmpl implements CategoriaService {
+
+	private static final Logger log = LoggerFactory.getLogger(CategoriaServicelmpl.class);
+
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
@@ -32,6 +37,7 @@ public class CategoriaServicelmpl implements CategoriaService {
 	@Transactional
 	@Override
 	public Categoria save(Categoria categoria) {
+		log.error(String.valueOf(categoria.getCategoriaId()));
 		if (categoriaRepository.findByNombreCategoriaEquals(categoria.getNombreCategoria()).isPresent()) {
 			throw new CategoriaException("La categoria " + categoria.getNombreCategoria() + " ya existe");
 		}

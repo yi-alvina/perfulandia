@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.alvina.msvc.inventario.clients.ProductoClientsRest;
 import com.alvina.msvc.inventario.clients.SucursalClientsRest;
-import com.alvina.msvc.productos.repositories.ProductoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.alvina.msvc.inventario.exceptions.InventarioException;
-import com.alvina.msvc.inventario.models.Inventario;
+import com.alvina.msvc.inventario.models.entity.Inventario;
 import com.alvina.msvc.inventario.repositories.InventarioRepository;
 
 @Service

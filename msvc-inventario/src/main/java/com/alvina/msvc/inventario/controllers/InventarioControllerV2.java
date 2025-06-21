@@ -3,7 +3,7 @@ package com.alvina.msvc.inventario.controllers;
 import ch.qos.logback.core.model.Model;
 import com.alvina.msvc.inventario.assemblers.InventarioModelAssembler;
 import com.alvina.msvc.inventario.dtos.ErrorDTO;
-import com.alvina.msvc.inventario.models.Inventario;
+import com.alvina.msvc.inventario.models.entity.Inventario;
 import com.alvina.msvc.inventario.services.InventarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -16,17 +16,15 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.IanaLinkRelations;
-import org.springframework.hateoas.MediaTyp
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import static java.util.stream.Collectors.toList;
+import java.util.List;
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
@@ -39,6 +37,7 @@ public class InventarioControllerV2 {
 
     @Autowired
     private InventarioModelAssembler inventarioModelAssembler;
+    private Object toModel;
 
     @GetMapping
     @Operation(summary = "Obtiene todos los inventarios", description = "Devuelve un List de Inventarios en el Body")
@@ -54,9 +53,9 @@ public class InventarioControllerV2 {
     })
 
     public ResponseEntity<CollectionModel<EntityModel<Inventario>>> findAll() {
-        List<EntityModel<Model>> entityModels = this.inventarioService.findAll()
+        List<EntityModel<Inventario>> entityModels = this.inventarioService.findAll()
                 .stream()
-                .map(inventarioModelAssembler: :toModel)
+                .map(inventarioModelAssembler::toModel)
                 .toList();
         CollectionModel<EntityModel<Inventario>> collectionModel = CollectionModel.of(
                 entityModels,
@@ -73,7 +72,7 @@ public class InventarioControllerV2 {
             @ApiResponse(responseCode = "200",
                     description = "Operacion exitosa",
                     content = @Content(
-                            mediaType = MediaType.HAL_JSON_VALUE,
+                            mediaType = MediaTypes.HAL_JSON_VALUE,
                             schema = @Schema(implementation = Inventario.class)
                     )),
             @ApiResponse(
@@ -87,7 +86,7 @@ public class InventarioControllerV2 {
     })
 
     @Parameters(value = {
-            @Parameter(name="id", description = "Este es el id unico del medico", required = true)
+            @Parameter(name="id", description = "Este es el id unico del inventario", required = true)
     })
     public ResponseEntity<EntityModel<Inventario>> findById(@PathVariable Long id){
         EntityModel<Inventario> entityModel = this.inventarioModelAssembler.toModel(
@@ -106,7 +105,7 @@ public class InventarioControllerV2 {
             @ApiResponse(responseCode = "201",
                     description = "Guardado exitoso",
                     content = @Content(
-                            mediaType = MediaType.HAL_JSON_VALUE,
+                            mediaType = MediaTypes.HAL_JSON_VALUE,
                             schema = @Schema(implementation = Inventario.class)
 
     )),

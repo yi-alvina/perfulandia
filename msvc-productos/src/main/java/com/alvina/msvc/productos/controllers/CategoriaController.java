@@ -2,6 +2,11 @@ package com.alvina.msvc.productos.controllers;
 
 import java.util.List;
 
+import com.alvina.msvc.productos.dtos.RegistroCategoriaDTO;
+import com.alvina.msvc.productos.models.Producto;
+import com.alvina.msvc.productos.models.RegistroCategoria;
+import com.alvina.msvc.productos.services.ProductoService;
+import com.alvina.msvc.productos.services.RegistroCategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,5 +52,6 @@ public class CategoriaController {
 	public ResponseEntity<Categoria> save(@Valid @RequestBody Categoria categoria) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.save(categoria));
 	}
+
 
 }
