@@ -50,7 +50,7 @@ public class ProductoControllerTest {
         Producto guardado = new Producto(1L,"Nombre","PalabraClave",1000);
         when(productoService.save(any(Producto.class))).thenReturn(guardado);
 
-        mockMvc.perform(post("/api/v1/productos/").contentType(MediaType.APPLICATION_JSON).content("""
+        mockMvc.perform(post("/api/v1/productos").contentType(MediaType.APPLICATION_JSON).content("""
 				{
 				  "nombreProducto": "Nombre",
 				  "palabraClave": "PalabraClave",

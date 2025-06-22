@@ -30,7 +30,7 @@ public class InventarioControllerTest {
     @Test
     public void findAll_terminaOK() throws Exception {
 
-        Inventario inventario = new Inventario(32,1L,1L);
+        Inventario inventario = new Inventario(1L,32,1L,1L);
         when(inventarioService.findAll()).thenReturn(List.of(inventario));
 
         mockMvc.perform(get("/api/v1/inventario")).andExpect(status().isOk())
@@ -40,7 +40,7 @@ public class InventarioControllerTest {
     @Test
     public void findById_terminaOK() throws Exception {
 
-        Inventario inventario = new Inventario(32,1L,1L);
+        Inventario inventario = new Inventario(1L,32,1L,1L);
         when(inventarioService.findById(1L)).thenReturn(inventario);
 
         mockMvc.perform(get("/api/v1/inventario/1")).andExpect(status().isOk())
@@ -59,17 +59,17 @@ public class InventarioControllerTest {
     @Test
     public void save_terminaOK() throws Exception {
 
-        Inventario guardado = new Inventario(32,1L,1L);
+        Inventario guardado = new Inventario(1L,50,1L,1L);
         when(inventarioService.save(any(Inventario.class))).thenReturn(guardado);
 
         mockMvc.perform(post("/api/v1/inventario").contentType(MediaType.APPLICATION_JSON).content("""
 				{
 				  "cantidadProducto": 50,
-				  "idProducto": 8,
-				  "idSucursal": 2
+				  "idProducto": 1,
+				  "idSucursal": 1
 				}
 				""")).andExpect(status().isCreated()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.inventarioId").value(5L)).andExpect(jsonPath("$.cantidadProducto").value(50));
+                .andExpect(jsonPath("$.inventarioId").value(1L)).andExpect(jsonPath("$.cantidadProducto").value(50));
     }
 
 }

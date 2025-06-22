@@ -5,7 +5,6 @@ import com.alvina.msvc.inventario.clients.SucursalClientsRest;
 import com.alvina.msvc.inventario.models.entity.Inventario;
 import com.alvina.msvc.inventario.repositories.InventarioRepository;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -40,7 +39,7 @@ public class InventarioServiceImplTest {
     @Test
     public void findAll_terminaOK() {
         // Preparar el mock
-        List<Inventario> retornoMock = List.of(new Inventario(1, 1L, 1L));
+        List<Inventario> retornoMock = List.of(new Inventario(1L,1, 1L, 1L));
         when(inventarioRepository.findAll()).thenReturn(retornoMock);
 
         // Llamar al objeto real
@@ -54,7 +53,7 @@ public class InventarioServiceImplTest {
     public void findById_terminaOK() {
 
         // Preparar el mock
-        Inventario retornoMock = new Inventario(1, 1L, 1L);
+        Inventario retornoMock = new Inventario(1L,1, 1L, 1L);
         when(inventarioRepository.findById(1L)).thenReturn(Optional.of(retornoMock));
 
         // Llamar al objeto real
@@ -68,7 +67,7 @@ public class InventarioServiceImplTest {
     public void save_terminaOK_ElIDyaExisteEnBD() {
 
         // Preparar el mock
-        Inventario retornoMock = new Inventario(1, 1L, 1L);
+        Inventario retornoMock = new Inventario(1L,1, 1L, 1L);
         when(inventarioRepository.findById(1L)).thenReturn(Optional.of(retornoMock));
 
         try {
@@ -83,7 +82,7 @@ public class InventarioServiceImplTest {
     public void save_terminaOK() {
 
         // Preparar el mock
-        Inventario retornoMock = new Inventario(1, 1L, 1L);
+        Inventario retornoMock = new Inventario(1L,1, 1L, 1L);
         when(inventarioRepository.findById(1L)).thenReturn(Optional.empty());
         when(inventarioRepository.save(retornoMock)).thenReturn(retornoMock);
 
