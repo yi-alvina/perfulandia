@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.usuario.models.entities;
+package com.mcontreras.msvc.sucursal.models.entities;
 
 
 import jakarta.persistence.*;

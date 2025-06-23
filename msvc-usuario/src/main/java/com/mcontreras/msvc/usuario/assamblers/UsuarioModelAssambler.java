@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.usuario.assamblers;
+package com.mcontreras.msvc.sucursal.assamblers;
 
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.RepresentationModel;
