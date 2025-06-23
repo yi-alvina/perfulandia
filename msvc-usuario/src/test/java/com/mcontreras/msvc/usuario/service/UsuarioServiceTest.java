@@ -78,7 +78,7 @@ public class UsuarioServiceTest {
     }
 
     @Test
-    @DisplayName("Encontrar por id un usuario inexistente")
+    @DisplayName("Encontrar un usuartio por un ID inexistente")
     public void encontrarPorIdUnUsuarioInexistente() {
         Long idInexistente = 1L;
         when(usuarioRespository.findById(idInexistente)).thenReturn(Optional.empty());
