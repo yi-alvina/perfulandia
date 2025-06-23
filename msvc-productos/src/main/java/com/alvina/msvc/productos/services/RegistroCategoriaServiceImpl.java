@@ -10,6 +10,9 @@ import com.alvina.msvc.productos.models.Producto;
 import com.alvina.msvc.productos.repositories.RegistroCategoriaRepository;
 import com.alvina.msvc.productos.repositories.CategoriaRepository;
 import com.alvina.msvc.productos.repositories.ProductoRepository;
+import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +21,10 @@ import java.util.List;
 
 @Service
 public class RegistroCategoriaServiceImpl implements RegistroCategoriaService{
+
+    private static final Logger log = LoggerFactory.getLogger(RegistroCategoriaServiceImpl.class);
+
+
     @Autowired
     private RegistroCategoriaRepository registroCategoriaRepository;
     @Autowired
@@ -41,18 +48,19 @@ public class RegistroCategoriaServiceImpl implements RegistroCategoriaService{
 
     @Transactional
     @Override
-    public RegistroCategoria save(RegistroCategoriaDTO registroCategoria) {
+    public RegistroCategoria save(@Valid RegistroCategoria registroCategoria) {
+        log.error(String.valueOf(registroCategoria.getRegistroId()));
         RegistroCategoria registroCategoriaEntity = new RegistroCategoria();
     Categoria categoria = categoriaRepository.findById(
-            registroCategoria.getCategoriaId()
+            registroCategoria.getRegistroId()
     ).orElseThrow(
-            () -> new CategoriaException("La categoria con id "+ registroCategoria.getCategoriaId() + registroCategoria.getCategoriaId() + " no existe")
+            () -> new CategoriaException("La categoria con id "+ registroCategoria.getRegistroId() + " no existe")
     );
 
     Producto producto = productoRepository.findById(
-            registroCategoria.getProductoId()
+            registroCategoria.getRegistroId()
     ).orElseThrow(
-        () -> new ProductoException("El producto con id "+ registroCategoria.getProductoId() + " no existe")
+        () -> new ProductoException("El producto con id "+ registroCategoria.getProducto() + " no existe")
     );
 
     registroCategoriaEntity.setCategoria(categoria);

@@ -2,16 +2,20 @@ package com.alvina.msvc.productos.services;
 
 import java.util.List;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.slf4j.Logger;
 import com.alvina.msvc.productos.exceptions.ProductoException;
 import com.alvina.msvc.productos.models.Producto;
 import com.alvina.msvc.productos.repositories.ProductoRepository;
 
 @Service
 public class ProductoServiceImpl implements ProductoService {
+
+	private static final Logger log = LoggerFactory.getLogger(ProductoServiceImpl.class);
+
 
 	@Autowired
 	private ProductoRepository productoRepository;
@@ -59,6 +63,7 @@ public class ProductoServiceImpl implements ProductoService {
 	@Transactional
 	@Override
 	public Producto save(Producto producto) {
+		log.error(String.valueOf(producto.getProductoId()));
 		if (productoRepository.findByNombreProductoEquals(producto.getNombreProducto()).isPresent()) {
 			throw new ProductoException("El producto " + producto.getNombreProducto() + " ya existe");
 		}

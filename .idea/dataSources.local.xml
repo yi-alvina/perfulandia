@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-251.25410.129">
+  <component name="dataSourceStorageLocal" created-in="IU-251.26094.121">
     <data-source name="msvc_inventario" uuid="8698341b-5f16-4c70-8a42-0492c6d23574">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="H2" />
       <user-name>sa</user-name>
@@ -27,6 +27,11 @@
       <schema-mapping />
     </data-source>
     <data-source name="msvc_carrito" uuid="d8db4bbc-8ac0-441f-ac96-0dc813768078">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="H2" />
+      <user-name>sa</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="default@localhost" uuid="f19a6271-f13c-40ac-9d44-729dd3723802">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="H2" />
       <user-name>sa</user-name>
       <schema-mapping />
