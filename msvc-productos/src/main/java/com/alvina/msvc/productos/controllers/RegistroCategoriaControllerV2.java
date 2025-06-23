@@ -29,7 +29,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping("/api/v1/registro-categoria")
+@RequestMapping("/api/v2/registro-categoria")
 @Validated
 public class RegistroCategoriaControllerV2 {
     @Autowired
@@ -134,7 +134,7 @@ public class RegistroCategoriaControllerV2 {
         EntityModel<RegistroCategoria> entityModel = this.registroCategoriaModelAssembler.toModel(registroCategoriaNew);
 
         return ResponseEntity
-                .created(linkTo(methodOn(RegistroCategoriaControllerV2.class).findById(registroCategoriaNew.getRegistroId())).toUri())
+                .created(linkTo(methodOn(RegistroCategoriaControllerV2.class).findById(registroCategoriaNew.getregistroId())).toUri())
                 .body(entityModel);
     }
 

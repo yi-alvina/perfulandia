@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
@@ -45,7 +46,7 @@ public class InventarioControllerTest {
 
         mockMvc.perform(get("/api/v1/inventario/1")).andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.inventarioId").value(1L));
+                .andExpect(jsonPath("$.inventarioId").value(Optional.of(1L)));
     }
 
     @Test
@@ -69,7 +70,7 @@ public class InventarioControllerTest {
 				  "idSucursal": 1
 				}
 				""")).andExpect(status().isCreated()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.inventarioId").value(1L)).andExpect(jsonPath("$.cantidadProducto").value(50));
+                .andExpect(jsonPath("$.inventarioId").value(Optional.of(1L))).andExpect(jsonPath("$.cantidadProducto").value(Optional.of(50)));
     }
 
 }
