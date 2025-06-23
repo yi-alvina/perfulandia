@@ -67,7 +67,7 @@ public class UsuarioServiceTest {
     }
 
     @Test
-    @DisplayName("Encontrar por id un usuario")
+    @DisplayName("Encontrar a un usuario con ID")
     public void encontrarPorIdUnUsuario () {
         when(usuarioRespository.findById(1L)).thenReturn(Optional.of(usuarioPrueba));
         Usuario result = usuarioService.findById(1L);

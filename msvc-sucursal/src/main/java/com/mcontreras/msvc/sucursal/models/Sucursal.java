@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.usuario.models;
+package com.mcontreras.msvc.sucursal.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
