@@ -14,9 +14,9 @@ public class SwaggerConfig {
     public OpenAPI carritoOpenAPI() {
         Contact contact = new Contact();
         contact.setName("Tomas Zamora");
-        contact.setEmail("toma.zamora@duocuc.cl"");
+        contact.setEmail("toma.zamora@duocuc.cl");
                 return new OpenAPI()
                 .info(new Info()
-                .title("Carrito"))
+                .title("Carrito"));
     }
 }
