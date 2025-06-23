@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.usuario;
+package com.mcontreras.msvc.sucursal;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

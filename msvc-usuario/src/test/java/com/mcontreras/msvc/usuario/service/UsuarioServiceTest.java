@@ -1,9 +1,9 @@
 package com.mcontreras.msvc.usuario.service;
 
-import com.mcontreras.msvc.usuario.exceptions.UsuarioException;
-import com.mcontreras.msvc.usuario.models.entities.Usuario;
-import com.mcontreras.msvc.usuario.repositories.UsuarioRespository;
-import com.mcontreras.msvc.usuario.servicies.UsuarioServiceImpl;
+import com.mcontreras.msvc.sucursal.exceptions.UsuarioException;
+import com.mcontreras.msvc.sucursal.models.entities.Usuario;
+import com.mcontreras.msvc.sucursal.repositories.UsuarioRespository;
+import com.mcontreras.msvc.sucursal.servicies.UsuarioServiceImpl;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

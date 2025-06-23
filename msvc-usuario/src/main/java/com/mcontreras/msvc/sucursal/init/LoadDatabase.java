@@ -1,7 +1,7 @@
-package com.mcontreras.msvc.usuario.init;
+package com.mcontreras.msvc.sucursal.init;
 
-import com.mcontreras.msvc.usuario.models.entities.Usuario;
-import com.mcontreras.msvc.usuario.repositories.UsuarioRespository;
+import com.mcontreras.msvc.sucursal.models.entities.Usuario;
+import com.mcontreras.msvc.sucursal.repositories.UsuarioRespository;
 import net.datafaker.Faker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

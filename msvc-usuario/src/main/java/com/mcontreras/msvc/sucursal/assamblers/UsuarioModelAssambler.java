@@ -1,7 +1,6 @@
-package com.mcontreras.msvc.usuario.assamblers;
+package com.mcontreras.msvc.sucursal.assamblers;
 
 import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.RepresentationModel;
 import org.springframework.stereotype.Component;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 

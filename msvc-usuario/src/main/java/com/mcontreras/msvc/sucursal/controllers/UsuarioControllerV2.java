@@ -1,8 +1,8 @@
-package com.mcontreras.msvc.usuario.controllers;
+package com.mcontreras.msvc.sucursal.controllers;
 
 
-import com.mcontreras.msvc.usuario.assamblers.UsuarioModelAssembler;
-import com.mcontreras.msvc.usuario.servicies.UsuarioService;
+import com.mcontreras.msvc.sucursal.assamblers.UsuarioModelAssembler;
+import com.mcontreras.msvc.sucursal.servicies.UsuarioService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;

@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.usuario.service;
+package com.mcontreras.msvc.sucursal.service;
 
 import com.mcontreras.msvc.sucursal.exceptions.SucursalException;
 import com.mcontreras.msvc.sucursal.models.Sucursal;

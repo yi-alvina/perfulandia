@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.usuario.dtos;
+package com.mcontreras.msvc.sucursal.dtos;
 
 import lombok.Getter;
 import lombok.Setter;
