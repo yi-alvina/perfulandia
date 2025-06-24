@@ -60,16 +60,16 @@ public class VentaControllerV2 {
 
     public ResponseEntity<CollectionModel<EntityModel<Venta>>> findAll(){
         List<EntityModel<Venta>> entityModels = this.ventaService.findAll()
-                .stream().map(ventaModelAssembler::toModel)
+                .stream()
                 .map(ventaModelAssembler::toModel)
                 .toList();
         CollectionModel<EntityModel<Venta>> collectionModel = CollectionModel.of(
                 entityModels,
                 linkTo(methodOn(VentaControllerV2.class).findAll()).withSelfRel()
-                ;
-                return new ResponseEntity<>
-                        .status(HttpStatus.OK)
-                        .body(CollectionModel);
+        );
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(collectionModel);
     }
 
     @GetMapping("/{id}")
@@ -104,13 +104,13 @@ public ResponseEntity<EntityModel<Venta>> findById(@PathVariable Long id){
 
     @PostMapping
     @Operation(
-            summary = "Guarda una venta"
+            summary = "Guarda una venta",
             description = "Con este metodo podemos evitar los datos mediante un body y realizar el guardado")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201",
-                    description = "Guardado exitoso"
+                    description = "Guardado exitoso",
                     content = @Content(
-                            mediaType = "aplicattion/json"
+                            mediaType = "aplicattion/json",
                             schema = @Schema(implementation = ErrorDTO.class)
 
             )
@@ -122,13 +122,15 @@ public ResponseEntity<EntityModel<Venta>> findById(@PathVariable Long id){
                     mediaType = "apliccation/json",
                     schema = @Schema(implementation = Venta.class)
             )
-
+    )
     public ResponseEntity<EntityModel<Venta>> create (@Valid @RequestBody Venta venta){
                 Venta ventaNew = this.ventaService.save(venta);
                 EntityModel<Venta> entityModel = this.ventaModelAssembler.toModel(ventaNew);
                 return  ResponseEntity
-                        .created(linkTo(methodOn(VentaControllerV2.class).findById(ventaNew.getIdVenta().toUri)))
+                        .created(linkTo(methodOn(VentaControllerV2.class).findById(ventaNew.getIdVenta())).toUri())
                         .body(entityModel);
     }
-            }
+
+
+}
 

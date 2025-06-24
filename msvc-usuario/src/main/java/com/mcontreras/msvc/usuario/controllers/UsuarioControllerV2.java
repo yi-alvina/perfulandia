@@ -139,12 +139,12 @@ public class UsuarioControllerV2 {
                     schema = @Schema(implementation = Usuario.class)
             )
     )
-    public ResponseEntity<EntityModel<Usuario>> create(@Valid @RequestBody Usuario categoria) {
-        Usuario inventarioNew = this.usuarioService.save(categoria);
-        EntityModel<Usuario> entityModel = this.usuarioModelAssembler.toModel(inventarioNew);
+    public ResponseEntity<EntityModel<Usuario>> create(@Valid @RequestBody Usuario usuario) {
+        Usuario usuarioNew = this.usuarioService.save(usuario);
+        EntityModel<Usuario> entityModel = this.usuarioModelAssembler.toModel(usuarioNew);
 
         return ResponseEntity
-                .created(linkTo(methodOn(UsuarioControllerV2.class).findById(inventarioNew.getIdUsuario())).toUri())
+                .created(linkTo(methodOn(UsuarioControllerV2.class).findById(usuarioNew.getIdUsuario())).toUri())
                 .body(entityModel);
     }
 

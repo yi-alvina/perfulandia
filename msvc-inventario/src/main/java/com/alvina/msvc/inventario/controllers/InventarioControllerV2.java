@@ -130,7 +130,7 @@ public class InventarioControllerV2 {
         EntityModel<Inventario> entityModel = this.inventarioModelAssembler.toModel(inventarioNew);
 
         return ResponseEntity
-                .created(linkTo(methodOn(InventarioControllerV2.class).findById(inventarioNew.getinventarioId())).toUri())
+                .created(linkTo(methodOn(InventarioControllerV2.class).findById(inventarioNew.getInventarioId())).toUri())
                 .body(entityModel);
     }
 }
