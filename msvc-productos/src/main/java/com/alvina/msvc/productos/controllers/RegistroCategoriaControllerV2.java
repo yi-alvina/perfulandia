@@ -134,7 +134,7 @@ public class RegistroCategoriaControllerV2 {
         EntityModel<RegistroCategoria> entityModel = this.registroCategoriaModelAssembler.toModel(registroCategoriaNew);
 
         return ResponseEntity
-                .created(linkTo(methodOn(RegistroCategoriaControllerV2.class).findById(registroCategoriaNew.getregistroId())).toUri())
+                .created(linkTo(methodOn(RegistroCategoriaControllerV2.class).findById(registroCategoriaNew.getRegistroId())).toUri())
                 .body(entityModel);
     }
 
