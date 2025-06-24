@@ -2,6 +2,7 @@ package com.tomzamora.msvc.carrito.msvc.carrito.assemblers;
 
 
 import com.tomzamora.msvc.carrito.msvc.carrito.model.entities.Carrito;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.stereotype.Component;
 
 @Component
