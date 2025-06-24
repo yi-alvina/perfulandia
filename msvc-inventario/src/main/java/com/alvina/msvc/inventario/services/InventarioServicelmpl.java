@@ -37,7 +37,7 @@ public class InventarioServicelmpl implements InventarioService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public Inventario findById(Long id) {
+	public Inventario findById(long id) {
 		return inventarioRepository.findById(id)
 				.orElseThrow(() -> new InventarioException("Inventario con id " + id + " no existe"));
 	}
@@ -54,7 +54,7 @@ public class InventarioServicelmpl implements InventarioService {
 
 	@Transactional
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		inventarioRepository.deleteById(id);
 	}
 

@@ -16,10 +16,10 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    private ErrorDTO createErrorDTO(int Status, Date date, Map<String, String> errorsMap){
+    private ErrorDTO createErrorDTO(int status, Date date, Map<String, String> errorsMap){
         ErrorDTO errorDTO = new ErrorDTO();
 
-        errorDTO.setStatus(Status);
+        errorDTO.setStatus(status);
         errorDTO.setDate(date);
         errorDTO.setErrors(errorsMap);
 

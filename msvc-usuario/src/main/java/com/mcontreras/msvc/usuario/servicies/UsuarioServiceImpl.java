@@ -20,7 +20,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario findById(Long id) {
         return this.usuarioRespository.findById(id).orElseThrow(
-                () -> new UsuarioException("El usuarion con el ID " + id + " no se encuentra en la base de datos.")
+                () -> new UsuarioException("El usuario con el ID " + id + " no se encuentra en la base de datos.")
         );
     }
 

@@ -32,7 +32,7 @@ public class Inventario {
 
 	private Long idSucursal;
 
-	public Inventario(Long idInventario, Integer cantidadProducto, Long idProducto, Long idSucursal) {
+	public Inventario(long idInventario, int cantidadProducto, long idProducto, long idSucursal) {
 		this.inventarioId = idInventario;
 		this.cantidadProducto = cantidadProducto;
 		this.idProducto = idProducto;

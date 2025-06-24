@@ -130,6 +130,7 @@ public class CategoriaControllerV2 {
                     )
             )
     })
+
     @io.swagger.v3.oas.annotations.parameters.RequestBody(
             description = "categoria a crear",
             content = @Content(
