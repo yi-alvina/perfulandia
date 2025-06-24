@@ -1,8 +1,8 @@
-package com.mcontreras.msvc.sucursal.servicies;
+package com.mcontreras.msvc.usuario.servicies;
 
-import com.mcontreras.msvc.sucursal.exceptions.UsuarioException;
-import com.mcontreras.msvc.sucursal.models.entities.Usuario;
-import com.mcontreras.msvc.sucursal.repositories.UsuarioRespository;
+import com.mcontreras.msvc.usuario.exceptions.UsuarioException;
+import com.mcontreras.msvc.usuario.models.entities.Usuario;
+import com.mcontreras.msvc.usuario.repositories.UsuarioRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario findById(Long id) {
         return this.usuarioRespository.findById(id).orElseThrow(
-                () -> new UsuarioException("El usuarion con el ID " + id + " no se encuentra en la base de datos.")
+                () -> new UsuarioException("El usuario con el ID " + id + " no se encuentra en la base de datos.")
         );
     }
 

@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.sucursal.models;
+package com.mcontreras.msvc.usuario.models;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.sucursal.config;
+package com.mcontreras.msvc.usuario.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

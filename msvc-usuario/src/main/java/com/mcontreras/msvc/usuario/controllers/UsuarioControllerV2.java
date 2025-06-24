@@ -1,15 +1,10 @@
-package com.alvina.msvc.productos.controllers;
+package com.mcontreras.msvc.usuario.controllers;
 
-import com.alvina.msvc.productos.assemblers.CategoriaModelAssembler;
-import com.alvina.msvc.productos.assemblers.ProductoModelAssembler;
-import com.alvina.msvc.productos.dtos.ErrorDTO;
-import com.alvina.msvc.productos.dtos.RegistroCategoriaDTO;
-import com.alvina.msvc.productos.models.Categoria;
-import com.alvina.msvc.productos.models.Producto;
-import com.alvina.msvc.productos.models.RegistroCategoria;
-import com.alvina.msvc.productos.services.CategoriaService;
-import com.alvina.msvc.productos.services.ProductoService;
-import com.alvina.msvc.productos.services.RegistroCategoriaService;
+
+import com.mcontreras.msvc.usuario.assemblers.UsuarioModelAssembler;
+import com.mcontreras.msvc.usuario.dtos.ErrorDTO;
+import com.mcontreras.msvc.usuario.models.entities.Usuario;
+import com.mcontreras.msvc.usuario.servicies.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -19,6 +14,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jdk.jfr.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
@@ -34,52 +30,57 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping("/api/v2/categorias")
-@Tag(name = "Categorias V2", description = "Operaciones CRUD de categorias hateoas")
+@RequestMapping("api/v2/usuarios")
 @Validated
-public class CategoriaControllerV2 {
-    @Autowired
-    private CategoriaService categoriaService;
+@Tag(
+        name = "Usuario API HATEOAS",
+        description = "Aquí se generar todos lo métodos CRUD de usuario"
+)
+public class UsuarioControllerV2 {
 
     @Autowired
-    private CategoriaModelAssembler categoriaModelAssembler;
-    private Object toModel;
+    private UsuarioService usuarioService;
+
+    @Autowired
+    private UsuarioModelAssembler usuarioModelAssembler;
 
     @GetMapping
-    @Operation(summary = "Obtiene todos las categorias", description = "Devuelve un List de categorias en el Body")
-    @ApiResponses( value = {
+    @Operation(summary = "Obtiene todos los usuarios", description = "Devuelve una Ñist de usuarios en el body")
+    @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
                     description = "Operacion exitosa",
                     content = @Content(
                             mediaType = MediaTypes.HAL_JSON_VALUE,
-                            schema = @Schema(implementation = Categoria.class)
+                            schema = @Schema(implementation = Category.class)
                     )
             )
     })
 
-    public ResponseEntity<CollectionModel<EntityModel<Categoria>>> findAll() {
-        List<EntityModel<Categoria>> entityModels = this.categoriaService.findAll()
+    public ResponseEntity<CollectionModel<EntityModel<Usuario>>> findAll() {
+        List<EntityModel<Usuario>> entityModels = this.usuarioService.findAll()
                 .stream()
-                .map(categoriaModelAssembler::toModel)
+                .map(usuarioModelAssembler::toModel)
                 .toList();
-        CollectionModel<EntityModel<Categoria>> collectionModel = CollectionModel.of(
+        CollectionModel<EntityModel<Usuario>> collectionModel = CollectionModel.of(
                 entityModels,
-                linkTo(methodOn(CategoriaControllerV2.class).findAll()).withSelfRel()
+                linkTo(methodOn(UsuarioControllerV2.class).findAll()).withSelfRel()
         );
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(collectionModel);
+
+
     }
 
-    @GetMapping("/{id}")
-    @Operation(summary = "Obtiene una categoria", description = "A través del id suministrado devuelve la categoria con esa id")
+    @GetMapping ("/{id}")
+    @Operation(summary = "Obtiene un usuario", description = "A través del id suministrado devuelve el usuario con ese id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200",
                     description = "Operacion exitosa",
                     content = @Content(
                             mediaType = MediaTypes.HAL_JSON_VALUE,
-                            schema = @Schema(implementation = Categoria.class)
+                            schema = @Schema(implementation = Usuario.class)
                     )),
             @ApiResponse(
                     responseCode = "404",
@@ -89,14 +90,15 @@ public class CategoriaControllerV2 {
                             schema = @Schema(implementation = ErrorDTO.class)
                     )
             )
+
     })
 
     @Parameters(value = {
-            @Parameter(name="id", description = "Este es el id unico del categoria", required = true)
+            @Parameter(name="id", description = "Este es el id unico del usuario", required = true)
     })
-    public ResponseEntity<EntityModel<Categoria>> findById(@PathVariable Long id){
-        EntityModel<Categoria> entityModel = this.categoriaModelAssembler.toModel(
-                this.categoriaService.findByCategoriaId(id)
+    public ResponseEntity<EntityModel<Usuario>> findById(@PathVariable Long id){
+        EntityModel<Usuario> entityModel = this.usuarioModelAssembler.toModel(
+                this.usuarioService.findById(id)
         );
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -105,7 +107,7 @@ public class CategoriaControllerV2 {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletebyId(@PathVariable Long id) {
-        categoriaService.deleteByCategoriaId(id);
+        usuarioService.deleteUsuarioById(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
@@ -118,7 +120,7 @@ public class CategoriaControllerV2 {
                     description = "Guardado exitoso",
                     content = @Content(
                             mediaType = MediaTypes.HAL_JSON_VALUE,
-                            schema = @Schema(implementation = Categoria.class)
+                            schema = @Schema(implementation = Usuario.class)
 
                     )),
             @ApiResponse(
@@ -130,20 +132,23 @@ public class CategoriaControllerV2 {
                     )
             )
     })
-
     @io.swagger.v3.oas.annotations.parameters.RequestBody(
             description = "categoria a crear",
             content = @Content(
                     mediaType = "application/json",
-                    schema = @Schema(implementation = Categoria.class)
+                    schema = @Schema(implementation = Usuario.class)
             )
     )
-    public ResponseEntity<EntityModel<Categoria>> create(@Valid @RequestBody Categoria categoria) {
-        Categoria inventarioNew = this.categoriaService.save(categoria);
-        EntityModel<Categoria> entityModel = this.categoriaModelAssembler.toModel(inventarioNew);
+    public ResponseEntity<EntityModel<Usuario>> create(@Valid @RequestBody Usuario categoria) {
+        Usuario inventarioNew = this.usuarioService.save(categoria);
+        EntityModel<Usuario> entityModel = this.usuarioModelAssembler.toModel(inventarioNew);
 
         return ResponseEntity
-                .created(linkTo(methodOn(CategoriaControllerV2.class).findById(inventarioNew.getCategoriaId())).toUri())
+                .created(linkTo(methodOn(UsuarioControllerV2.class).findById(inventarioNew.getIdUsuario())).toUri())
                 .body(entityModel);
     }
+
+
+
+
 }

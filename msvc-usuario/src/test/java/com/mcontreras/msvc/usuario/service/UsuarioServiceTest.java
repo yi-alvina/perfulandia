@@ -1,9 +1,9 @@
 package com.mcontreras.msvc.usuario.service;
 
-import com.mcontreras.msvc.sucursal.exceptions.UsuarioException;
-import com.mcontreras.msvc.sucursal.models.entities.Usuario;
-import com.mcontreras.msvc.sucursal.repositories.UsuarioRespository;
-import com.mcontreras.msvc.sucursal.servicies.UsuarioServiceImpl;
+import com.mcontreras.msvc.usuario.exceptions.UsuarioException;
+import com.mcontreras.msvc.usuario.models.entities.Usuario;
+import com.mcontreras.msvc.usuario.repositories.UsuarioRespository;
+import com.mcontreras.msvc.usuario.servicies.UsuarioServiceImpl;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -60,7 +60,7 @@ public class UsuarioServiceTest {
     public void deveListarTodosLosUsuarios() {
         when(usuarioRespository.findAll()).thenReturn(this.usuarioList);
         List<Usuario> result = usuarioService.findAll();
-        assertThat(result).hasSize(11);
+        assertThat(result).hasSize(10);
         assertThat(result).contains(this.usuarioPrueba);
 
         verify(usuarioRespository, times(1)).findAll();
@@ -86,8 +86,8 @@ public class UsuarioServiceTest {
         assertThatThrownBy(() -> {
             usuarioService.findById(idInexistente);
         }).isInstanceOf(UsuarioException.class)
-                .hasMessageContaining("El medico con id " + idInexistente
-                        + " no se encuentra en la base de datos");
+                .hasMessageContaining("El usuario con el ID " + idInexistente + " no se encuentra en la base de datos.");
+
         verify(usuarioRespository,times(1)).findById(idInexistente);
     }
 

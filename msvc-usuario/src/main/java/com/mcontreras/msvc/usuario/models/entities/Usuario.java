@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.sucursal.models.entities;
+package com.mcontreras.msvc.usuario.models.entities;
 
 
 import jakarta.persistence.*;
@@ -32,4 +32,36 @@ public class Usuario {
 
     private String correo;
 
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public void setRun(String run) {
+        this.run = run;
+    }
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getCorreo() {
+        return this.correo;
+    }
+
+    public String getRun() {
+        return this.run;
+    }
+    public String getNombres() {
+        return this.nombres;
+    }
+
+    public String getApellidos() {
+        return this.apellidos;
+    }
+
+
 }
+
+

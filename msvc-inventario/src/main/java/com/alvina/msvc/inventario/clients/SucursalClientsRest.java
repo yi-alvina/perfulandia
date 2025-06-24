@@ -1,6 +1,6 @@
 package com.alvina.msvc.inventario.clients;
 
-import com.mcontreras.msvc.sucursal.models.Sucursal;
+import com.mcontreras.msvc.usuario.models.Sucursal;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

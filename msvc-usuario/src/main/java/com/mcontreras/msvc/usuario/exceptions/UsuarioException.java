@@ -1,4 +1,4 @@
-package com.mcontreras.msvc.sucursal.exceptions;
+package com.mcontreras.msvc.usuario.exceptions;
 
 public class UsuarioException extends RuntimeException {
     public UsuarioException(String message) {

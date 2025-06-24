@@ -55,7 +55,7 @@ public class SucursalServiceTest {
         when(this.sucursalRespository.findAll()).thenReturn(this.sucursalList);
         List<Sucursal> result = sucursalServices.findAll();
 
-        assertThat(result).hasSize(11);
+        assertThat(result).hasSize(10);
         assertThat(result).contains(this.sucursalPrueba);
 
         verify(sucursalRespository, times(1)).findAll();
@@ -67,7 +67,7 @@ public class SucursalServiceTest {
         when(sucursalRespository.findById(1L)).thenReturn(Optional.of(sucursalPrueba));
         Sucursal result = sucursalServices.findById(1L);
         assertThat(result).isNotNull();
-        assertThat(result).isEqualTo(this.sucursalList);
+        assertThat(result).isEqualTo(this.sucursalPrueba);
 
         verify(sucursalRespository,times(1)).findById(1L);
     }
@@ -81,8 +81,7 @@ public class SucursalServiceTest {
         assertThatThrownBy(() -> {
             sucursalServices.findById(idInexistente);
         }).isInstanceOf(SucursalException.class)
-                .hasMessageContaining("La sucursal con id " + idInexistente
-                        + " no se encuentra en la base de datos");
+                .hasMessage("Sucursal con el id " + idInexistente + " no encontrado.");
         verify(sucursalRespository,times(1)).findById(idInexistente);
     }
 
@@ -92,7 +91,7 @@ public class SucursalServiceTest {
         when(sucursalRespository.save(any(Sucursal.class))).thenReturn(this.sucursalPrueba);
         Sucursal result = sucursalServices.save(this.sucursalPrueba);
         assertThat(result).isNotNull();
-        assertThat(result).isEqualTo(this.sucursalList);
+        assertThat(result).isEqualTo(this.sucursalPrueba);
         verify(sucursalRespository,times(1)).save(any(Sucursal.class));
     }
 
