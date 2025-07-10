@@ -45,7 +45,7 @@ public class UsuarioControllerV2 {
     private UsuarioModelAssembler usuarioModelAssembler;
 
     @GetMapping
-    @Operation(summary = "Obtiene todos los usuarios", description = "Devuelve una Ñist de usuarios en el body")
+    @Operation(summary = "Obtiene todos los usuarios", description = "Devuelve una list de usuarios en el body")
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
@@ -84,7 +84,7 @@ public class UsuarioControllerV2 {
                     )),
             @ApiResponse(
                     responseCode = "404",
-                    description = "Categoria no encontrado, con el id suministrado",
+                    description = "Usuario no encontrado, con el id suministrado",
                     content = @Content(
                             mediaType = "application(json",
                             schema = @Schema(implementation = ErrorDTO.class)
@@ -113,7 +113,7 @@ public class UsuarioControllerV2 {
 
     @PostMapping
     @Operation(
-            summary = "Guarda una categoria",
+            summary = "Guarda una usuario",
             description = "Con este método podemos enviar los datos mediante un body y realizar el guardado")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201",
@@ -125,7 +125,7 @@ public class UsuarioControllerV2 {
                     )),
             @ApiResponse(
                     responseCode = "409",
-                    description = "El categoria guardado ya se encuentra en la base de datos",
+                    description = "El usuario guardado ya se encuentra en la base de datos",
                     content = @Content(
                             mediaType = "application/json",
                             schema = @Schema(implementation = ErrorDTO.class)
@@ -133,7 +133,7 @@ public class UsuarioControllerV2 {
             )
     })
     @io.swagger.v3.oas.annotations.parameters.RequestBody(
-            description = "categoria a crear",
+            description = "usuario a crear",
             content = @Content(
                     mediaType = "application/json",
                     schema = @Schema(implementation = Usuario.class)
